@@ -1,20 +1,41 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🧠 MindTrack – Multimodal Burnout Detection App (Frontend Prototype)
 
-# Run and deploy your AI Studio app
+MindTrack is designed to monitor and visualize early indicators of **mental fatigue and burnout** using **multimodal data**.  
+The system focuses on usability, explainability, and emotional safety through a friendly, calm UI.
 
-This contains everything you need to run your app locally.
+This project is developed as part of an academic assignment for the **Artificial Intelligence** course.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1EDmTMWRN0-fPerEur-M0E2aC-G3uVDTj
+---
 
-## Run Locally
+## 📚 Course Information
+- **Subject**: SECJ3553 – Artificial Intelligence  
+- **Semester**: Semester 01, 2025/2026  
+- **Section**: 07  
+- **Lecturer**: Dr. Ruhaidah Binti Samsudin  
 
-**Prerequisites:**  Node.js
+---
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 👥 Team Members
+| Name | Matric Number |
+|----|-------------|
+| CHEW ZHUO HENG | A23CS0064 |
+| GOH CHANG ZHE | A23CS0225 |
+| OW YEE HAO | A23CS0261 |
+| **YAP JIA XIN** | **A23CS0199** |
+
+---
+
+## 🧩 Key Features
+- 📊 **Dashboard** with Cognitive Health Index (CHI)
+- 🎙️ Voice recording & stress analysis (simulated)
+- 🙂 Facial scan & fatigue indicators (simulated)
+- 💤 Sleep and biometric data visualization (mock data)
+- 📈 Trends & explainable burnout insights
+- ⌚ Wearable device management (UI-only)
+
+---
+
+## 📌 Disclaimer
+This project is developed **solely for academic and learning purposes**.  
+It is **not a medical diagnostic tool** and should not be used for clinical decision-making.
