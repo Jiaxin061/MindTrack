@@ -22,7 +22,7 @@ This project is developed as part of an academic assignment for the **Artificial
 | CHEW ZHUO HENG | A23CS0064 |
 | GOH CHANG ZHE | A23CS0225 |
 | OW YEE HAO | A23CS0261 |
-| **YAP JIA XIN** | **A23CS0199** |
+| YAP JIA XIN | A23CS0199 |
 
 ---
 
