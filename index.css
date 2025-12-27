@@ -1,0 +1,20 @@
+/* Reset & base */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f3f4f6; /* soft neutral background */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Mobile phone shell */
+.app-shell {
+  max-width: 390px;           /* iPhone 14 width */
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #fafafa;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}

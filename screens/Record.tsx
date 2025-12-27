@@ -6,7 +6,7 @@ const Record: React.FC = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [status, setStatus] = useState<'idle' | 'recording' | 'analyzing' | 'done'>('idle');
   const [timer, setTimer] = useState(0);
-  
+
   // Manual Input State
   const [sleepHours, setSleepHours] = useState(7.5);
   const [mood, setMood] = useState<'negative' | 'neutral' | 'positive'>('neutral');
@@ -54,12 +54,12 @@ const Record: React.FC = () => {
   return (
     <div className="flex flex-col h-full bg-slate-50 font-sans">
       {/* Header section */}
-      <div className="px-6 pt-6 bg-white pb-4 shadow-sm shrink-0 z-10">
+      <div className="px-6 pt-4 bg-white pb-4 shadow-sm shrink-0 z-10">
         <h1 className="text-2xl font-bold text-slate-800">New Session</h1>
         <p className="text-sm text-slate-500">Multimodal health check</p>
-        
+
         {/* Sub Tabs */}
-        <div className="flex space-x-1 mt-6 bg-slate-100 p-1 rounded-2xl">
+        <div className="flex space-x-1 mt-4 bg-slate-100 p-1 rounded-2xl">
           {(['voice', 'facial', 'manual'] as const).map((tab) => (
             <button
               key={tab}
@@ -67,9 +67,8 @@ const Record: React.FC = () => {
                 setActiveTab(tab);
                 reset();
               }}
-              className={`flex-1 flex items-center justify-center py-2.5 rounded-xl text-xs font-bold transition-all ${
-                activeTab === tab ? 'bg-white text-teal-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'
-              }`}
+              className={`flex-1 flex items-center justify-center py-2.5 rounded-xl text-xs font-bold transition-all ${activeTab === tab ? 'bg-white text-teal-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'
+                }`}
             >
               {tab === 'voice' && <Mic size={16} className="mr-2" />}
               {tab === 'facial' && <Camera size={16} className="mr-2" />}
@@ -81,12 +80,12 @@ const Record: React.FC = () => {
       </div>
 
       {/* Main interaction area */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 text-center pb-20 w-full relative overflow-hidden">
-        
+      <div className="flex-1 flex flex-col items-center justify-center px-6 pt-12 text-center pb-20 w-full relative overflow-hidden">
+
         {/* --- IDLE STATE: SELECTION VIEW --- */}
         {status === 'idle' && (
           <div className="flex flex-col items-center justify-center w-full max-w-md animate-in fade-in slide-in-from-bottom-4 duration-500">
-            
+
             {/* Dynamic Visual Container */}
             <div className="mb-6 relative w-full flex justify-center">
               {/* Voice Visual */}
@@ -103,7 +102,7 @@ const Record: React.FC = () => {
                   <div className="absolute top-4 right-4 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   <ScanLine size={48} className="text-white/50 mb-2" />
                   <p className="text-white/40 text-[10px] font-mono uppercase tracking-widest">Camera Ready</p>
-                  
+
                   {/* Face Guide Overlay */}
                   <div className="absolute inset-0 border-2 border-white/20 rounded-[24px] m-6 border-dashed"></div>
                 </div>
@@ -118,21 +117,21 @@ const Record: React.FC = () => {
                       <label className="flex items-center text-slate-700 font-bold text-base">
                         <Moon size={18} className="mr-2 text-indigo-500" /> Sleep Duration
                       </label>
-                      <span className="text-indigo-600 font-mono font-bold text-lg w-16 text-right">
+                      <span className="text-indigo-600 font-mono font-bold text-lg w-24 text-right whitespace-nowrap">
                         {sleepHours} hrs
                       </span>
                     </div>
-                    
+
                     <div className="relative h-6 flex items-center">
-                      <input 
-                        type="range" 
+                      <input
+                        type="range"
                         min="0" max="12" step="0.5"
                         value={sleepHours}
                         onChange={(e) => setSleepHours(parseFloat(e.target.value))}
                         className="w-full h-2 bg-slate-100 rounded-full appearance-none cursor-pointer accent-indigo-500 hover:accent-indigo-600 transition-all"
                       />
                     </div>
-                    
+
                     <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono uppercase font-bold tracking-wide px-1">
                       <span>0h</span>
                       <span className="text-indigo-300">Target: 8h</span>
@@ -154,11 +153,10 @@ const Record: React.FC = () => {
                         <button
                           key={m.val}
                           onClick={() => setMood(m.val as any)}
-                          className={`flex-1 py-3 rounded-xl border-2 flex flex-col items-center justify-center transition-all duration-200 ${
-                            mood === m.val 
-                              ? `${m.color} ring-2 ring-offset-0 border-transparent shadow-sm transform scale-[1.02]` 
-                              : 'bg-white border-slate-100 text-slate-300 hover:border-slate-200 hover:bg-slate-50'
-                          }`}
+                          className={`flex-1 py-3 rounded-xl border-2 flex flex-col items-center justify-center transition-all duration-200 ${mood === m.val
+                            ? `${m.color} ring-2 ring-offset-0 border-transparent shadow-sm transform scale-[1.02]`
+                            : 'bg-white border-slate-100 text-slate-300 hover:border-slate-200 hover:bg-slate-50'
+                            }`}
                         >
                           <m.icon size={28} className={`mb-1 transition-transform duration-300 ${mood === m.val ? 'scale-110' : ''}`} strokeWidth={2} />
                           <span className="text-xs font-bold tracking-tight">{m.label}</span>
@@ -169,7 +167,7 @@ const Record: React.FC = () => {
                 </div>
               )}
             </div>
-            
+
             {/* Prompt Text */}
             <div className="space-y-1 max-w-xs mx-auto mb-6">
               <h3 className="text-xl font-bold text-slate-800 tracking-tight">
@@ -183,7 +181,7 @@ const Record: React.FC = () => {
             </div>
 
             {/* Main Action Button (Slightly Reduced Height) */}
-            <button 
+            <button
               onClick={handleStart}
               className="bg-teal-500 text-white w-full py-4 rounded-full font-bold shadow-lg shadow-teal-100 flex items-center justify-center space-x-2 active:scale-[0.98] transition-all hover:bg-teal-600 hover:shadow-xl text-lg tracking-wide"
             >
@@ -207,23 +205,23 @@ const Record: React.FC = () => {
           <div className="flex flex-col items-center justify-center space-y-12 w-full max-w-xs animate-in zoom-in duration-300">
             {/* ... (Recording UI remains mostly the same, just checking container fit) ... */}
             {activeTab === 'voice' && (
-               <>
-               <div className="relative h-24 flex items-end justify-center space-x-1.5 px-4 overflow-hidden w-full">
-                 {[...Array(15)].map((_, i) => (
-                   <div 
-                     key={i} 
-                     className="w-2 bg-teal-500 rounded-full animate-[bounce_1s_infinite]"
-                     style={{ height: `${Math.random() * 80 + 20}%`, animationDelay: `${i * 0.05}s` }}
-                   ></div>
-                 ))}
-               </div>
-               <div className="text-center">
-                 <div className="text-6xl font-mono font-bold text-slate-800 tabular-nums mb-4">{formatTime(timer)}</div>
-                 <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 italic text-slate-600 text-sm leading-relaxed">
-                   "The quick brown fox jumps over the lazy dog. Today I am feeling quite balanced and focused."
-                 </div>
-               </div>
-             </>
+              <>
+                <div className="relative h-24 flex items-end justify-center space-x-1.5 px-4 overflow-hidden w-full">
+                  {[...Array(15)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-2 bg-teal-500 rounded-full animate-[bounce_1s_infinite]"
+                      style={{ height: `${Math.random() * 80 + 20}%`, animationDelay: `${i * 0.05}s` }}
+                    ></div>
+                  ))}
+                </div>
+                <div className="text-center">
+                  <div className="text-6xl font-mono font-bold text-slate-800 tabular-nums mb-4">{formatTime(timer)}</div>
+                  <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 italic text-slate-600 text-sm leading-relaxed">
+                    "The quick brown fox jumps over the lazy dog. Today I am feeling quite balanced and focused."
+                  </div>
+                </div>
+              </>
             )}
 
             {activeTab === 'facial' && (
@@ -241,7 +239,7 @@ const Record: React.FC = () => {
               </div>
             )}
 
-            <button 
+            <button
               onClick={handleStop}
               className="bg-rose-500 text-white p-6 rounded-full shadow-lg shadow-rose-100 active:scale-90 transition-transform hover:bg-rose-600"
             >
@@ -270,7 +268,7 @@ const Record: React.FC = () => {
               <CheckCircle size={28} />
             </div>
             <h3 className="text-xl font-bold text-slate-800">Analysis Complete</h3>
-            
+
             <div className="mt-5 space-y-3">
               <div className="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <span className="text-slate-500 font-medium text-xs">
@@ -280,7 +278,7 @@ const Record: React.FC = () => {
                   {activeTab === 'manual' ? (sleepHours < 5 ? 'Critical (Low)' : 'Optimal') : 'Normal Range'}
                 </span>
               </div>
-              
+
               <div className="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <span className="text-slate-500 font-medium text-xs">Burnout Risk</span>
                 <span className="text-amber-600 font-bold text-sm">Low (12%)</span>
@@ -288,8 +286,8 @@ const Record: React.FC = () => {
             </div>
 
             <p className="mt-5 text-xs text-slate-400">Data synced with MindTrack Core.</p>
-            
-            <button 
+
+            <button
               onClick={reset}
               className="mt-6 flex items-center justify-center space-x-2 w-full py-3 rounded-xl border-2 border-slate-100 text-slate-600 font-bold active:bg-slate-50 transition-colors hover:bg-slate-50 hover:border-slate-200 text-sm"
             >
