@@ -1,0 +1,8 @@
+{
+  "name": "MindTrack - Burnout Detection",
+  "description": "A multimodal burnout monitoring app visualizing sleep, voice, facial fatigue, and biometrics to compute a Cognitive Health Index.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
