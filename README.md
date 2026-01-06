@@ -36,6 +36,11 @@ This project is developed as part of an academic assignment for the **Artificial
 
 ---
 
+## 📱Prototype Link
+[MindTrack] (https://comfy-sunshine-c05664.netlify.app/)
+
+---
+
 ## 📌 Disclaimer
 This project is developed **solely for academic and learning purposes**.  
 It is **not a medical diagnostic tool** and should not be used for clinical decision-making.
