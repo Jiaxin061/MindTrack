@@ -6,7 +6,13 @@ import DashboardCard from '../components/DashboardCard';
 import { MOCK_SLEEP, MOCK_VOICE, MOCK_FACIAL, MOCK_BIOMETRICS } from '../constants';
 import { RiskLevel } from '../types';
 
-const Dashboard: React.FC = () => {
+interface DashboardProps {
+  onViewDaily?: () => void;
+  onViewWeekly?: () => void;
+  onViewMonthly?: () => void;
+}
+
+const Dashboard: React.FC<DashboardProps> = ({ onViewDaily, onViewWeekly, onViewMonthly }) => {
   // Simplified logic to calculate CHI and risk level
   const chiScore = 64; 
   const getRisk = (score: number): RiskLevel => {
@@ -50,6 +56,30 @@ const Dashboard: React.FC = () => {
           <p className="mt-4 text-center text-sm text-slate-500 leading-relaxed px-4">
             Your metrics suggest a {risk.toLowerCase()} cognitive load. Consider 15 minutes of mindfulness today.
           </p>
+
+          {/* View Summary Button */}
+          <button
+            onClick={onViewDaily}
+            className="mt-6 w-full py-2.5 px-4 bg-teal-600 text-white font-semibold rounded-2xl hover:bg-teal-700 transition-colors text-sm"
+          >
+            View Today's Summary
+          </button>
+
+          {/* Weekly & Monthly Buttons */}
+          <div className="mt-4 grid grid-cols-2 gap-3 w-full">
+            <button
+              onClick={onViewWeekly}
+              className="py-2 px-3 bg-indigo-100 text-indigo-700 font-semibold rounded-xl hover:bg-indigo-200 transition-colors text-sm"
+            >
+              Weekly Trends
+            </button>
+            <button
+              onClick={onViewMonthly}
+              className="py-2 px-3 bg-purple-100 text-purple-700 font-semibold rounded-xl hover:bg-purple-200 transition-colors text-sm"
+            >
+              Monthly Patterns
+            </button>
+          </div>
         </div>
       </section>
 
